@@ -1,5 +1,5 @@
-const schema = require('ethjs-schema');
-const util = require('ethjs-util');
+const schema = require('vapjs-schema');
+const util = require('vapjs-util');
 const numberToBN = require('number-to-bn');
 const stripHexPrefix = require('strip-hex-prefix');
 const BN = require('bn.js');
@@ -26,7 +26,7 @@ function formatQuantity(value, encode, pad) {
   const numberValue = numberToBN(value);
   const numPadding = numberValue.lt(ten) && pad === true && !numberValue.isZero() ? '0' : '';
 
-  if (numberToBN(value).isNeg()) { throw new Error(`[ethjs-format] while formatting quantity '${numberValue.toString(10)}', invalid negative number. Number must be positive or zero.`); }
+  if (numberToBN(value).isNeg()) { throw new Error(`[vapjs-format] while formatting quantity '${numberValue.toString(10)}', invalid negative number. Number must be positive or zero.`); }
 
   return encode ? `0x${numPadding}${numberValue.toString(16)}` : numberValue;
 }
@@ -77,7 +77,7 @@ function formatData(value, byteLength) {
   // throw if bytelength is not correct
   if (typeof byteLength === 'number' && value !== null && output !== '0x' && output !== '0x0' // support empty values
     && (!/^[0-9A-Fa-f]+$/.test(stripHexPrefix(output)) || outputByteLength !== 2 + byteLength * 2)) {
-    throw new Error(`[ethjs-format] hex string '${output}' must be an alphanumeric ${2 + byteLength * 2} utf8 byte hex (chars: a-fA-F) string, is ${outputByteLength} bytes`);
+    throw new Error(`[vapjs-format] hex string '${output}' must be an alphanumeric ${2 + byteLength * 2} utf8 byte hex (chars: a-fA-F) string, is ${outputByteLength} bytes`);
   }
 
   return output;
@@ -87,7 +87,7 @@ function formatData(value, byteLength) {
  * Format object, even with random RPC caviets
  *
  * @method formatObject
- * @param {String|Array} formatter the unit to convert to, default ether
+ * @param {String|Array} formatter the unit to convert to, default vapor
  * @param {Object} value the object value
  * @param {Boolean} encode encode to hex or decode to BigNumber
  * @returns {Object} output object
@@ -99,8 +99,8 @@ function formatObject(formatter, value, encode) {
 
   // if the object is a string flag, then retreive the object
   if (typeof formatter === 'string') {
-    if (formatter === 'Boolean|EthSyncing') {
-      formatObject = Object.assign({}, schema.objects.EthSyncing);
+    if (formatter === 'Boolean|VapSyncing') {
+      formatObject = Object.assign({}, schema.objects.VapSyncing);
     } else if (formatter === 'DATA|Transaction') {
       formatObject = Object.assign({}, schema.objects.Transaction);
     } else {
@@ -110,7 +110,7 @@ function formatObject(formatter, value, encode) {
 
   // check if all required data keys are fulfilled
   if (!arrayContainsArray(Object.keys(value), formatObject.__required)) { // eslint-disable-line
-    throw new Error(`[ethjs-format] object ${JSON.stringify(value)} must contain properties: ${formatObject.__required.join(', ')}`); // eslint-disable-line
+    throw new Error(`[vapjs-format] object ${JSON.stringify(value)} must contain properties: ${formatObject.__required.join(', ')}`); // eslint-disable-line
   }
 
   // assume formatObject is an object, go through keys and format each
@@ -127,7 +127,7 @@ function formatObject(formatter, value, encode) {
  * Format array
  *
  * @method formatArray
- * @param {String|Array} formatter the unit to convert to, default ether
+ * @param {String|Array} formatter the unit to convert to, default vapor
  * @param {Object} value the value in question
  * @param {Boolean} encode encode to hex or decode to BigNumber
  * @param {Number} lengthRequirement the required minimum array length

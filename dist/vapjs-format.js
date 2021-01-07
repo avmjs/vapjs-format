@@ -3,11 +3,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("ethFormat", [], factory);
+		define("vapFormat", [], factory);
 	else if(typeof exports === 'object')
-		exports["ethFormat"] = factory();
+		exports["vapFormat"] = factory();
 	else
-		root["ethFormat"] = factory();
+		root["vapFormat"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -5355,7 +5355,7 @@ function padToEven(value) {
   var a = value; // eslint-disable-line
 
   if (typeof a !== 'string') {
-    throw new Error('[ethjs-util] while padding to even, value must be string, is currently ' + typeof a + ', while padToEven.');
+    throw new Error('[vapjs-util] while padding to even, value must be string, is currently ' + typeof a + ', while padToEven.');
   }
 
   if (a.length % 2) {
@@ -5394,7 +5394,7 @@ function intToBuffer(i) {
  */
 function getBinarySize(str) {
   if (typeof str !== 'string') {
-    throw new Error('[ethjs-util] while getting binary size, method getBinarySize requires input \'str\' to be type String, got \'' + typeof str + '\'.');
+    throw new Error('[vapjs-util] while getting binary size, method getBinarySize requires input \'str\' to be type String, got \'' + typeof str + '\'.');
   }
 
   return Buffer.byteLength(str, 'utf8');
@@ -5411,10 +5411,10 @@ function getBinarySize(str) {
  */
 function arrayContainsArray(superset, subset, some) {
   if (Array.isArray(superset) !== true) {
-    throw new Error('[ethjs-util] method arrayContainsArray requires input \'superset\' to be an array got type \'' + typeof superset + '\'');
+    throw new Error('[vapjs-util] method arrayContainsArray requires input \'superset\' to be an array got type \'' + typeof superset + '\'');
   }
   if (Array.isArray(subset) !== true) {
-    throw new Error('[ethjs-util] method arrayContainsArray requires input \'subset\' to be an array got type \'' + typeof subset + '\'');
+    throw new Error('[vapjs-util] method arrayContainsArray requires input \'subset\' to be an array got type \'' + typeof subset + '\'');
   }
 
   return subset[Boolean(some) && 'some' || 'every'](function (value) {
@@ -5504,10 +5504,10 @@ function fromAscii(stringValue) {
  */
 function getKeys(params, key, allowEmpty) {
   if (!Array.isArray(params)) {
-    throw new Error('[ethjs-util] method getKeys expecting type Array as \'params\' input, got \'' + typeof params + '\'');
+    throw new Error('[vapjs-util] method getKeys expecting type Array as \'params\' input, got \'' + typeof params + '\'');
   }
   if (typeof key !== 'string') {
-    throw new Error('[ethjs-util] method getKeys expecting type String for input \'key\' got \'' + typeof key + '\'.');
+    throw new Error('[vapjs-util] method getKeys expecting type String for input \'key\' got \'' + typeof key + '\'.');
   }
 
   var result = []; // eslint-disable-line
@@ -5609,41 +5609,41 @@ module.exports = {
 			"D20",
 			2
 		],
-		"eth_protocolVersion": [
+		"vap_protocolVersion": [
 			[],
 			"S"
 		],
-		"eth_syncing": [
+		"vap_syncing": [
 			[],
-			"B|EthSyncing"
+			"B|VapSyncing"
 		],
-		"eth_coinbase": [
+		"vap_coinbase": [
 			[],
 			"D20"
 		],
-		"eth_mining": [
+		"vap_mining": [
 			[],
 			"B"
 		],
-		"eth_hashrate": [
+		"vap_hashrate": [
 			[],
 			"Q"
 		],
-		"eth_gasPrice": [
+		"vap_gasPrice": [
 			[],
 			"Q"
 		],
-		"eth_accounts": [
+		"vap_accounts": [
 			[],
 			[
 				"D20"
 			]
 		],
-		"eth_blockNumber": [
+		"vap_blockNumber": [
 			[],
 			"Q"
 		],
-		"eth_getBalance": [
+		"vap_getBalance": [
 			[
 				"D20",
 				"Q|T"
@@ -5652,7 +5652,7 @@ module.exports = {
 			1,
 			2
 		],
-		"eth_getStorageAt": [
+		"vap_getStorageAt": [
 			[
 				"D20",
 				"Q",
@@ -5662,7 +5662,7 @@ module.exports = {
 			2,
 			2
 		],
-		"eth_getTransactionCount": [
+		"vap_getTransactionCount": [
 			[
 				"D20",
 				"Q|T"
@@ -5671,35 +5671,35 @@ module.exports = {
 			1,
 			2
 		],
-		"eth_getBlockTransactionCountByHash": [
+		"vap_getBlockTransactionCountByHash": [
 			[
 				"D32"
 			],
 			"Q",
 			1
 		],
-		"eth_getBlockTransactionCountByNumber": [
+		"vap_getBlockTransactionCountByNumber": [
 			[
 				"Q|T"
 			],
 			"Q",
 			1
 		],
-		"eth_getUncleCountByBlockHash": [
+		"vap_getUncleCountByBlockHash": [
 			[
 				"D32"
 			],
 			"Q",
 			1
 		],
-		"eth_getUncleCountByBlockNumber": [
+		"vap_getUncleCountByBlockNumber": [
 			[
 				"Q"
 			],
 			"Q",
 			1
 		],
-		"eth_getCode": [
+		"vap_getCode": [
 			[
 				"D20",
 				"Q|T"
@@ -5708,7 +5708,7 @@ module.exports = {
 			1,
 			2
 		],
-		"eth_sign": [
+		"vap_sign": [
 			[
 				"D20",
 				"D"
@@ -5716,7 +5716,7 @@ module.exports = {
 			"D",
 			2
 		],
-		"eth_signTypedData": [
+		"vap_signTypedData": [
 			[
 				"Array|DATA",
 				"D20"
@@ -5724,21 +5724,21 @@ module.exports = {
 			"D",
 			1
 		],
-		"eth_sendTransaction": [
+		"vap_sendTransaction": [
 			[
 				"SendTransaction"
 			],
 			"D",
 			1
 		],
-		"eth_sendRawTransaction": [
+		"vap_sendRawTransaction": [
 			[
 				"D"
 			],
 			"D32",
 			1
 		],
-		"eth_call": [
+		"vap_call": [
 			[
 				"CallTransaction",
 				"Q|T"
@@ -5747,7 +5747,7 @@ module.exports = {
 			1,
 			2
 		],
-		"eth_estimateGas": [
+		"vap_estimateGas": [
 			[
 				"EstimateTransaction",
 				"Q|T"
@@ -5755,7 +5755,7 @@ module.exports = {
 			"Q",
 			1
 		],
-		"eth_getBlockByHash": [
+		"vap_getBlockByHash": [
 			[
 				"D32",
 				"B"
@@ -5763,7 +5763,7 @@ module.exports = {
 			"Block",
 			2
 		],
-		"eth_getBlockByNumber": [
+		"vap_getBlockByNumber": [
 			[
 				"Q|T",
 				"B"
@@ -5771,14 +5771,14 @@ module.exports = {
 			"Block",
 			2
 		],
-		"eth_getTransactionByHash": [
+		"vap_getTransactionByHash": [
 			[
 				"D32"
 			],
 			"Transaction",
 			1
 		],
-		"eth_getTransactionByBlockHashAndIndex": [
+		"vap_getTransactionByBlockHashAndIndex": [
 			[
 				"D32",
 				"Q"
@@ -5786,7 +5786,7 @@ module.exports = {
 			"Transaction",
 			2
 		],
-		"eth_getTransactionByBlockNumberAndIndex": [
+		"vap_getTransactionByBlockNumberAndIndex": [
 			[
 				"Q|T",
 				"Q"
@@ -5794,14 +5794,14 @@ module.exports = {
 			"Transaction",
 			2
 		],
-		"eth_getTransactionReceipt": [
+		"vap_getTransactionReceipt": [
 			[
 				"D32"
 			],
 			"Receipt",
 			1
 		],
-		"eth_getUncleByBlockHashAndIndex": [
+		"vap_getUncleByBlockHashAndIndex": [
 			[
 				"D32",
 				"Q"
@@ -5809,7 +5809,7 @@ module.exports = {
 			"Block",
 			1
 		],
-		"eth_getUncleByBlockNumberAndIndex": [
+		"vap_getUncleByBlockNumberAndIndex": [
 			[
 				"Q|T",
 				"Q"
@@ -5817,56 +5817,56 @@ module.exports = {
 			"Block",
 			2
 		],
-		"eth_getCompilers": [
+		"vap_getCompilers": [
 			[],
 			[
 				"S"
 			]
 		],
-		"eth_compileLLL": [
+		"vap_compileLLL": [
 			[
 				"S"
 			],
 			"D",
 			1
 		],
-		"eth_compileSolidity": [
+		"vap_compileSolidity": [
 			[
 				"S"
 			],
 			"D",
 			1
 		],
-		"eth_compileSerpent": [
+		"vap_compileSerpent": [
 			[
 				"S"
 			],
 			"D",
 			1
 		],
-		"eth_newFilter": [
+		"vap_newFilter": [
 			[
 				"Filter"
 			],
 			"Q",
 			1
 		],
-		"eth_newBlockFilter": [
+		"vap_newBlockFilter": [
 			[],
 			"Q"
 		],
-		"eth_newPendingTransactionFilter": [
+		"vap_newPendingTransactionFilter": [
 			[],
 			"Q"
 		],
-		"eth_uninstallFilter": [
+		"vap_uninstallFilter": [
 			[
 				"QP"
 			],
 			"B",
 			1
 		],
-		"eth_getFilterChanges": [
+		"vap_getFilterChanges": [
 			[
 				"QP"
 			],
@@ -5875,7 +5875,7 @@ module.exports = {
 			],
 			1
 		],
-		"eth_getFilterLogs": [
+		"vap_getFilterLogs": [
 			[
 				"QP"
 			],
@@ -5884,7 +5884,7 @@ module.exports = {
 			],
 			1
 		],
-		"eth_getLogs": [
+		"vap_getLogs": [
 			[
 				"Filter"
 			],
@@ -5893,13 +5893,13 @@ module.exports = {
 			],
 			1
 		],
-		"eth_getWork": [
+		"vap_getWork": [
 			[],
 			[
 				"D"
 			]
 		],
-		"eth_submitWork": [
+		"vap_submitWork": [
 			[
 				"D",
 				"D32",
@@ -5908,7 +5908,7 @@ module.exports = {
 			"B",
 			3
 		],
-		"eth_submitHashrate": [
+		"vap_submitHashrate": [
 			[
 				"D",
 				"D"
@@ -6021,7 +6021,7 @@ module.exports = {
 		"pending"
 	],
 	"objects": {
-		"EthSyncing": {
+		"VapSyncing": {
 			"__required": [],
 			"startingBlock": "Q",
 			"currentBlock": "Q",
@@ -6274,7 +6274,7 @@ function formatQuantity(value, encode, pad) {
   var numPadding = numberValue.lt(ten) && pad === true && !numberValue.isZero() ? '0' : '';
 
   if (numberToBN(value).isNeg()) {
-    throw new Error('[ethjs-format] while formatting quantity \'' + numberValue.toString(10) + '\', invalid negative number. Number must be positive or zero.');
+    throw new Error('[vapjs-format] while formatting quantity \'' + numberValue.toString(10) + '\', invalid negative number. Number must be positive or zero.');
   }
 
   return encode ? '0x' + numPadding + numberValue.toString(16) : numberValue;
@@ -6328,7 +6328,7 @@ function formatData(value, byteLength) {
   // throw if bytelength is not correct
   if (typeof byteLength === 'number' && value !== null && output !== '0x' && output !== '0x0' // support empty values
   && (!/^[0-9A-Fa-f]+$/.test(stripHexPrefix(output)) || outputByteLength !== 2 + byteLength * 2)) {
-    throw new Error('[ethjs-format] hex string \'' + output + '\' must be an alphanumeric ' + (2 + byteLength * 2) + ' utf8 byte hex (chars: a-fA-F) string, is ' + outputByteLength + ' bytes');
+    throw new Error('[vapjs-format] hex string \'' + output + '\' must be an alphanumeric ' + (2 + byteLength * 2) + ' utf8 byte hex (chars: a-fA-F) string, is ' + outputByteLength + ' bytes');
   }
 
   return output;
@@ -6338,7 +6338,7 @@ function formatData(value, byteLength) {
  * Format object, even with random RPC caviets
  *
  * @method formatObject
- * @param {String|Array} formatter the unit to convert to, default ether
+ * @param {String|Array} formatter the unit to convert to, default vapor
  * @param {Object} value the object value
  * @param {Boolean} encode encode to hex or decode to BigNumber
  * @returns {Object} output object
@@ -6350,8 +6350,8 @@ function formatObject(formatter, value, encode) {
 
   // if the object is a string flag, then retreive the object
   if (typeof formatter === 'string') {
-    if (formatter === 'Boolean|EthSyncing') {
-      formatObject = Object.assign({}, schema.objects.EthSyncing);
+    if (formatter === 'Boolean|VapSyncing') {
+      formatObject = Object.assign({}, schema.objects.VapSyncing);
     } else if (formatter === 'DATA|Transaction') {
       formatObject = Object.assign({}, schema.objects.Transaction);
     } else {
@@ -6362,7 +6362,7 @@ function formatObject(formatter, value, encode) {
   // check if all required data keys are fulfilled
   if (!arrayContainsArray(Object.keys(value), formatObject.__required)) {
     // eslint-disable-line
-    throw new Error('[ethjs-format] object ' + JSON.stringify(value) + ' must contain properties: ' + formatObject.__required.join(', ')); // eslint-disable-line
+    throw new Error('[vapjs-format] object ' + JSON.stringify(value) + ' must contain properties: ' + formatObject.__required.join(', ')); // eslint-disable-line
   }
 
   // assume formatObject is an object, go through keys and format each
@@ -6379,7 +6379,7 @@ function formatObject(formatter, value, encode) {
  * Format array
  *
  * @method formatArray
- * @param {String|Array} formatter the unit to convert to, default ether
+ * @param {String|Array} formatter the unit to convert to, default vapor
  * @param {Object} value the value in question
  * @param {Boolean} encode encode to hex or decode to BigNumber
  * @param {Number} lengthRequirement the required minimum array length
@@ -6779,4 +6779,4 @@ module.exports = function(module) {
 /******/ ])
 });
 ;
-//# sourceMappingURL=ethjs-format.js.map
+//# sourceMappingURL=vapjs-format.js.map

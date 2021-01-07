@@ -69,19 +69,19 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/ethjs/ethjs-format/issues"
+    "url": "https://github.com/vapjs/vapjs-format/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
     "bn.js": "4.11.6",
-    "ethjs-schema": "0.2.1",
-    "ethjs-util": "0.1.3",
+    "vapjs-schema": "0.2.1",
+    "vapjs-util": "0.1.3",
     "is-hex-prefixed": "1.0.0",
     "number-to-bn": "1.7.0",
     "strip-hex-prefix": "1.0.0"
   },
   "deprecated": false,
-  "description": "A payload formatter for the Ethereum RPC layer.",
+  "description": "A payload formatter for the Vapory RPC layer.",
   "devDependencies": {
     "babel-cli": "6.18.0",
     "babel-core": "6.18.2",
@@ -119,10 +119,10 @@
     "eslint-plugin-import": "1.8.0",
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1",
-    "ethereumjs-testrpc": "3.0.2",
-    "ethjs-abi": "0.0.1",
-    "ethjs-query": "0.0.2",
-    "ethjs-sha3": "0.0.1",
+    "vaporyjs-testrpc": "3.0.2",
+    "vapjs-abi": "0.0.1",
+    "vapjs-query": "0.0.2",
+    "vapjs-sha3": "0.0.1",
     "eventsource-polyfill": "0.9.6",
     "istanbul": "0.4.5",
     "json-loader": "0.5.4",
@@ -178,9 +178,9 @@
     "lib",
     "src"
   ],
-  "homepage": "https://github.com/ethjs/ethjs-format#readme",
+  "homepage": "https://github.com/vapjs/vapjs-format#readme",
   "keywords": [
-    "ethereum",
+    "vapory",
     "rpc",
     "formatter",
     "format"
@@ -190,11 +190,11 @@
     "lint:eslint": "*.js"
   },
   "main": "lib/index.js",
-  "name": "ethjs-format",
+  "name": "vapjs-format",
   "pre-commit": "build",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ethjs/ethjs-format.git"
+    "url": "git+ssh://git@github.com/vapjs/vapjs-format.git"
   },
   "scripts": {
     "build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
