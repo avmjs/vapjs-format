@@ -191,6 +191,7 @@
   },
   "main": "lib/index.js",
   "name": "vapjs-format",
+  "namespace": "vapjs", 
   "pre-commit": "build",
   "repository": {
     "type": "git",
