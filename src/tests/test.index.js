@@ -3,9 +3,9 @@
 const assert = require('chai').assert;
 const format = require('../index.js');
 const BN = require('bn.js');
-const schema = require('ethjs-schema');
+const schema = require('vapjs-schema');
 
-describe('test ethjs-format object', () => {
+describe('test vapjs-format object', () => {
   describe('test formatQuantity', () => {
     it('should encode normally', () => {
       const bignum = new BN(45333);
@@ -38,15 +38,15 @@ describe('test ethjs-format object', () => {
       }
     });
 
-    it('test format object EthSyncing', () => {
+    it('test format object VapSyncing', () => {
 
-      const objEth = {
+      const objVap = {
         startingBlock: "0x57840CC2C",
         currentBlock: "0x57840CC2C",
         highestBlock: "0x57840CC2C",
       };
 
-      assert.deepEqual(format.formatObject('Boolean|EthSyncing', objEth).startingBlock.toNumber(10) > 0, true);
+      assert.deepEqual(format.formatObject('Boolean|VapSyncing', objVap).startingBlock.toNumber(10) > 0, true);
     });
 
     it('test is required keys are filled, should throw', () => {
@@ -690,21 +690,21 @@ describe('test ethjs-format object', () => {
   });
 
   describe('test formatInputs', () => {
-    it ('should handle eth_getBalance normally', () => {
-      const encodedBalance = format.formatInputs('eth_getBalance', ['0xb60e8dd61c5d32be8058bb8eb970870f07233155']);
+    it ('should handle vap_getBalance normally', () => {
+      const encodedBalance = format.formatInputs('vap_getBalance', ['0xb60e8dd61c5d32be8058bb8eb970870f07233155']);
 
       assert.equal(encodedBalance, '0xb60e8dd61c5d32be8058bb8eb970870f07233155');
     });
 
-    it ('should handle eth_getBalance 2 arguments normally', () => {
-      const encodedBalance = format.formatInputs('eth_getBalance', ['0xb60e8dd61c5d32be8058bb8eb970870f07233155', 'latest']);
+    it ('should handle vap_getBalance 2 arguments normally', () => {
+      const encodedBalance = format.formatInputs('vap_getBalance', ['0xb60e8dd61c5d32be8058bb8eb970870f07233155', 'latest']);
 
       assert.equal(encodedBalance[0], '0xb60e8dd61c5d32be8058bb8eb970870f07233155');
       assert.equal(encodedBalance[1], 'latest');
     });
 
-    it ('should handle eth_sendTransaction normally', () => {
-      const encodedSendTransaction = format.formatInputs('eth_sendTransaction', [{
+    it ('should handle vap_sendTransaction normally', () => {
+      const encodedSendTransaction = format.formatInputs('vap_sendTransaction', [{
         'from': '0xb60e8dd61c5d32be8058bb8eb970870f07233155',
         'to': '0xd46e8dd67c5d32be8058bb8eb970870f07244567',
         'gas': new BN('30400'), // 30400,
@@ -731,72 +731,72 @@ describe('test ethjs-format object', () => {
   });
 
   describe('test formatOutputs', () => {
-    it ('should handle invalid eth_getTransactionByBlockHashAndIndex normally', () => {
+    it ('should handle invalid vap_getTransactionByBlockHashAndIndex normally', () => {
       try {
-        const decodedHashRate = format.formatInputs('eth_getTransactionByBlockHashAndIndex', ['0x']);
+        const decodedHashRate = format.formatInputs('vap_getTransactionByBlockHashAndIndex', ['0x']);
       } catch (error) {
         assert.equal(typeof error, 'object');
       }
     });
 
-    it ('should handle eth_getFilterChanges normally during eth_newBlockFilter', () => {
-      const decodedTxHashArray = format.formatOutputs('eth_getFilterChanges', ['0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55', '0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55']);
+    it ('should handle vap_getFilterChanges normally during vap_newBlockFilter', () => {
+      const decodedTxHashArray = format.formatOutputs('vap_getFilterChanges', ['0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55', '0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55']);
 
       assert.equal(decodedTxHashArray.toString(10), ['0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55', '0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55']);
     });
 
-    it ('should handle eth_getFilterChanges normally during eth_newPendingTransactionFilter', () => {
-      const decodedTxHashArray = format.formatOutputs('eth_getFilterChanges', ['0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55', '0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55']);
+    it ('should handle vap_getFilterChanges normally during vap_newPendingTransactionFilter', () => {
+      const decodedTxHashArray = format.formatOutputs('vap_getFilterChanges', ['0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55', '0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55']);
 
       assert.equal(decodedTxHashArray.toString(10), ['0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55', '0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf55']);
     });
 
-    it ('should handle eth_hashrate normally', () => {
-      const decodedHashRate = format.formatOutputs('eth_hashrate', '0x38a');
+    it ('should handle vap_hashrate normally', () => {
+      const decodedHashRate = format.formatOutputs('vap_hashrate', '0x38a');
 
       assert.equal(decodedHashRate.toString(10), '906');
     });
 
-    it ('should handle eth_getBalance normally', () => {
-      const decodedBalance = format.formatOutputs('eth_getBalance', '0x38a');
+    it ('should handle vap_getBalance normally', () => {
+      const decodedBalance = format.formatOutputs('vap_getBalance', '0x38a');
 
       assert.equal(decodedBalance.toString(10), '906');
     });
 
-    it ('should handle empty eth_hashrate normally', () => {
-      const decodedHashRate = format.formatOutputs('eth_hashrate', '0x');
+    it ('should handle empty vap_hashrate normally', () => {
+      const decodedHashRate = format.formatOutputs('vap_hashrate', '0x');
 
       assert.equal(decodedHashRate.toString(10), '0');
     });
 
-    it ('should handle eth_mining true normally', () => {
-      const decodedMining = format.formatOutputs('eth_mining', true);
+    it ('should handle vap_mining true normally', () => {
+      const decodedMining = format.formatOutputs('vap_mining', true);
 
       assert.equal(decodedMining, true);
     });
 
-    it ('should handle eth_mining false normally', () => {
-      const decodedMining = format.formatOutputs('eth_mining', false);
+    it ('should handle vap_mining false normally', () => {
+      const decodedMining = format.formatOutputs('vap_mining', false);
 
       assert.equal(decodedMining, false);
     });
 
-    it ('should handle eth_accounts normally', () => {
-      const decodedEthAccounts = format.formatOutputs('eth_accounts', ['0x407d73d8a49eeb85d32cf465507dd71d507100c1', '0x407d73d8a49eeb85d32cf465507dd71d507100c1', '0x407d73d8a49eeb85d32cf465507dd71d507100c1']);
+    it ('should handle vap_accounts normally', () => {
+      const decodedVapAccounts = format.formatOutputs('vap_accounts', ['0x407d73d8a49eeb85d32cf465507dd71d507100c1', '0x407d73d8a49eeb85d32cf465507dd71d507100c1', '0x407d73d8a49eeb85d32cf465507dd71d507100c1']);
 
-      assert.equal(decodedEthAccounts[0], '0x407d73d8a49eeb85d32cf465507dd71d507100c1');
-      assert.equal(decodedEthAccounts[1], '0x407d73d8a49eeb85d32cf465507dd71d507100c1');
-      assert.equal(decodedEthAccounts[2], '0x407d73d8a49eeb85d32cf465507dd71d507100c1');
+      assert.equal(decodedVapAccounts[0], '0x407d73d8a49eeb85d32cf465507dd71d507100c1');
+      assert.equal(decodedVapAccounts[1], '0x407d73d8a49eeb85d32cf465507dd71d507100c1');
+      assert.equal(decodedVapAccounts[2], '0x407d73d8a49eeb85d32cf465507dd71d507100c1');
     });
 
-    it ('should handle empty eth_accounts normally', () => {
-      const decodedEthAccounts = format.formatOutputs('eth_accounts', []);
+    it ('should handle empty vap_accounts normally', () => {
+      const decodedVapAccounts = format.formatOutputs('vap_accounts', []);
 
-      assert.equal(decodedEthAccounts.length, 0);
+      assert.equal(decodedVapAccounts.length, 0);
     });
 
-    it ('should handle eth_getFilterChanges normally', () => {
-      const decodedFilterChanges = format.formatOutputs('eth_getFilterChanges', [{
+    it ('should handle vap_getFilterChanges normally', () => {
+      const decodedFilterChanges = format.formatOutputs('vap_getFilterChanges', [{
         'logIndex': '0x1', // 1
         'blockNumber':'0x1b4', // 436
         'blockHash': '0x8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcfdf829c5a142f1fccd7d21',
@@ -838,7 +838,7 @@ describe('test ethjs-format object', () => {
 });
 
 /*
-'EthSyncing',
+'VapSyncing',
 'SendTransaction',
 'Block',
 'Transaction',
@@ -850,7 +850,7 @@ describe('test ethjs-format object', () => {
 'SHHMessage',
 
 'DATA|Transaction'
-'Boolean|EthSyncing'
+'Boolean|VapSyncing'
 
 'Array|DATA'
 

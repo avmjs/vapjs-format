@@ -1,9 +1,10 @@
 {
-  "name": "ethjs-format",
+  "name": "vapjs-format",
+  "namespace": "vapjs",
   "version": "0.1.1",
-  "description": "A payload formatter for the Ethereum RPC layer.",
+  "description": "A payload formatter for the Vapory RPC layer.",
   "main": "lib/index.js",
-  "browser": "dist/ethjs-format.js",
+  "browser": "dist/vapjs-format.js",
   "files": [
     "dist",
     "internals",
@@ -33,10 +34,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ethjs/ethjs-format.git"
+    "url": "git+ssh://git@github.com/vapjs/vapjs-format.git"
   },
   "keywords": [
-    "ethereum",
+    "vapory",
     "rpc",
     "formatter",
     "format"
@@ -50,9 +51,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ethjs/ethjs-format/issues"
+    "url": "https://github.com/vapjs/vapjs-format/issues"
   },
-  "homepage": "https://github.com/ethjs/ethjs-format#readme",
+  "homepage": "https://github.com/vapjs/vapjs-format#readme",
   "babel": {
     "plugins": [
       [
@@ -121,8 +122,8 @@
   },
   "dependencies": {
     "bn.js": "4.11.6",
-    "ethjs-schema": "^0.1.0",
-    "ethjs-util": "0.1.1"
+    "vapjs-schema": "0.1.0",
+    "vapjs-util": "0.1.1"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
@@ -164,11 +165,11 @@
     "eslint-plugin-import": "1.8.0",
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1",
-    "ethereumjs-testrpc": "3.0.2",
-    "ethjs-abi": "0.0.1",
+    "vaporyjs-testrpc": "3.0.0",
+    "vapjs-abi": "0.2.1",
     "istanbul": "0.4.5",
-    "ethjs-query": "0.0.2",
-    "ethjs-sha3": "0.0.1",
+    "vapjs-query": "0.0.2",
+    "vapjs-sha3": "0.8.0",
     "eventsource-polyfill": "0.9.6",
     "lint-staged": "1.0.1",
     "mocha": "3.1.2",

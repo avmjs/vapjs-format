@@ -1,10 +1,10 @@
-const schema = require('ethjs-schema');
+const schema = require('vapjs-schema');
 const BN = require('bn.js');
-const toBuffer = require('ethjs-util').toBuffer;
-const stripHexPrefix = require('ethjs-util').stripHexPrefix;
-const isHexPrefixed = require('ethjs-util').isHexPrefixed;
-const arrayContainsArray = require('ethjs-util').arrayContainsArray;
-const getBinarySize = require('ethjs-util').getBinarySize;
+const toBuffer = require('vapjs-util').toBuffer;
+const stripHexPrefix = require('vapjs-util').stripHexPrefix;
+const isHexPrefixed = require('vapjs-util').isHexPrefixed;
+const arrayContainsArray = require('vapjs-util').arrayContainsArray;
+const getBinarySize = require('vapjs-util').getBinarySize;
 
 /**
  * Format quantity values, either encode to hex or decode to BigNumber
@@ -73,7 +73,7 @@ function formatQuantityOrTag(value, encode) {
  * Format object, even with random RPC caviets
  *
  * @method formatObject
- * @param {String|Array} formatter the unit to convert to, default ether
+ * @param {String|Array} formatter the unit to convert to, default vapor
  * @param {Object} value the object value
  * @param {Boolean} encode encode to hex or decode to BigNumber
  * @returns {Object} output object
@@ -85,8 +85,8 @@ function formatObject(formatter, value, encode) {
 
   // if the object is a string flag, then retreive the object
   if (typeof formatter === 'string') {
-    if (formatter === 'Boolean|EthSyncing') {
-      formatObject = Object.assign({}, schema.objects.EthSyncing);
+    if (formatter === 'Boolean|VapSyncing') {
+      formatObject = Object.assign({}, schema.objects.VapSyncing);
     } else if (formatter === 'DATA|Transaction') {
       formatObject = Object.assign({}, schema.objects.Transaction);
     } else {
@@ -111,7 +111,7 @@ function formatObject(formatter, value, encode) {
  * Format array
  *
  * @method formatArray
- * @param {String|Array} formatter the unit to convert to, default ether
+ * @param {String|Array} formatter the unit to convert to, default vapor
  * @param {Object} value the value in question
  * @param {Boolean} encode encode to hex or decode to BigNumber
  * @param {Number} lengthRequirement the required minimum array length
