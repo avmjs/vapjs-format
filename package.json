@@ -75,7 +75,7 @@
   "dependencies": {
     "bn.js": "4.11.6",
     "vapjs-schema": "0.2.1",
-    "vapjs-util": "0.1.3",
+    "vapjs-util": "0.1.4",
     "is-hex-prefixed": "1.0.0",
     "number-to-bn": "1.7.0",
     "strip-hex-prefix": "1.0.0"
@@ -119,10 +119,10 @@
     "eslint-plugin-import": "1.8.0",
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1",
-    "vaporyjs-testrpc": "3.0.2",
-    "vapjs-abi": "0.0.1",
+    "vaporyjs-testrpc": "3.0.0",
+    "vapjs-abi": "0.2.1",
     "vapjs-query": "0.0.2",
-    "js-sha3": "0.0.1",
+    "vapjs-sha3": "0.8.0",
     "eventsource-polyfill": "0.9.6",
     "istanbul": "0.4.5",
     "json-loader": "0.5.4",
