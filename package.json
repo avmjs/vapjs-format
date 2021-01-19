@@ -198,7 +198,8 @@
     "url": "git+ssh://git@github.com/vapjs/vapjs-format.git"
   },
   "scripts": {
-    "build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
+    "build-orig": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
     "build:clean": "npm run test:clean && rimraf ./dist",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",

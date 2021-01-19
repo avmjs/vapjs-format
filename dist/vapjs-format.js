@@ -94,7 +94,7 @@ module.exports = function stripHexPrefix(str) {
 /* WEBPACK VAR INJECTION */(function(Buffer, global) {/*!
  * The buffer module from node.js, for the browser.
  *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @author   Feross Aboukhadijeh <http://feross.org>
  * @license  MIT
  */
 /* eslint-disable no-proto */
@@ -5338,6 +5338,681 @@ module.exports = function isHexPrefixed(str) {
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+module.exports = {
+	"methods": {
+		"web3_clientVersion": [
+			[],
+			"S"
+		],
+		"web3_sha3": [
+			[
+				"S"
+			],
+			"D",
+			1
+		],
+		"net_version": [
+			[],
+			"S"
+		],
+		"net_peerCount": [
+			[],
+			"Q"
+		],
+		"net_listening": [
+			[],
+			"B"
+		],
+		"personal_sign": [
+			[
+				"D",
+				"D20",
+				"S"
+			],
+			"D",
+			2
+		],
+		"personal_ecRecover": [
+			[
+				"D",
+				"D"
+			],
+			"D20",
+			2
+		],
+		"eth_protocolVersion": [
+			[],
+			"S"
+		],
+		"eth_syncing": [
+			[],
+			"B|EthSyncing"
+		],
+		"eth_coinbase": [
+			[],
+			"D20"
+		],
+		"eth_mining": [
+			[],
+			"B"
+		],
+		"eth_hashrate": [
+			[],
+			"Q"
+		],
+		"eth_gasPrice": [
+			[],
+			"Q"
+		],
+		"eth_accounts": [
+			[],
+			[
+				"D20"
+			]
+		],
+		"eth_blockNumber": [
+			[],
+			"Q"
+		],
+		"eth_getBalance": [
+			[
+				"D20",
+				"Q|T"
+			],
+			"Q",
+			1,
+			2
+		],
+		"eth_getStorageAt": [
+			[
+				"D20",
+				"Q",
+				"Q|T"
+			],
+			"D",
+			2,
+			2
+		],
+		"eth_getTransactionCount": [
+			[
+				"D20",
+				"Q|T"
+			],
+			"Q",
+			1,
+			2
+		],
+		"eth_getBlockTransactionCountByHash": [
+			[
+				"D32"
+			],
+			"Q",
+			1
+		],
+		"eth_getBlockTransactionCountByNumber": [
+			[
+				"Q|T"
+			],
+			"Q",
+			1
+		],
+		"eth_getUncleCountByBlockHash": [
+			[
+				"D32"
+			],
+			"Q",
+			1
+		],
+		"eth_getUncleCountByBlockNumber": [
+			[
+				"Q"
+			],
+			"Q",
+			1
+		],
+		"eth_getCode": [
+			[
+				"D20",
+				"Q|T"
+			],
+			"D",
+			1,
+			2
+		],
+		"eth_sign": [
+			[
+				"D20",
+				"D"
+			],
+			"D",
+			2
+		],
+		"eth_signTypedData": [
+			[
+				"Array|DATA",
+				"D20"
+			],
+			"D",
+			1
+		],
+		"eth_sendTransaction": [
+			[
+				"SendTransaction"
+			],
+			"D",
+			1
+		],
+		"eth_sendRawTransaction": [
+			[
+				"D"
+			],
+			"D32",
+			1
+		],
+		"eth_call": [
+			[
+				"CallTransaction",
+				"Q|T"
+			],
+			"D",
+			1,
+			2
+		],
+		"eth_estimateGas": [
+			[
+				"EstimateTransaction",
+				"Q|T"
+			],
+			"Q",
+			1
+		],
+		"eth_getBlockByHash": [
+			[
+				"D32",
+				"B"
+			],
+			"Block",
+			2
+		],
+		"eth_getBlockByNumber": [
+			[
+				"Q|T",
+				"B"
+			],
+			"Block",
+			2
+		],
+		"eth_getTransactionByHash": [
+			[
+				"D32"
+			],
+			"Transaction",
+			1
+		],
+		"eth_getTransactionByBlockHashAndIndex": [
+			[
+				"D32",
+				"Q"
+			],
+			"Transaction",
+			2
+		],
+		"eth_getTransactionByBlockNumberAndIndex": [
+			[
+				"Q|T",
+				"Q"
+			],
+			"Transaction",
+			2
+		],
+		"eth_getTransactionReceipt": [
+			[
+				"D32"
+			],
+			"Receipt",
+			1
+		],
+		"eth_getUncleByBlockHashAndIndex": [
+			[
+				"D32",
+				"Q"
+			],
+			"Block",
+			1
+		],
+		"eth_getUncleByBlockNumberAndIndex": [
+			[
+				"Q|T",
+				"Q"
+			],
+			"Block",
+			2
+		],
+		"eth_getCompilers": [
+			[],
+			[
+				"S"
+			]
+		],
+		"eth_compileLLL": [
+			[
+				"S"
+			],
+			"D",
+			1
+		],
+		"eth_compileSolidity": [
+			[
+				"S"
+			],
+			"D",
+			1
+		],
+		"eth_compileSerpent": [
+			[
+				"S"
+			],
+			"D",
+			1
+		],
+		"eth_newFilter": [
+			[
+				"Filter"
+			],
+			"Q",
+			1
+		],
+		"eth_newBlockFilter": [
+			[],
+			"Q"
+		],
+		"eth_newPendingTransactionFilter": [
+			[],
+			"Q"
+		],
+		"eth_uninstallFilter": [
+			[
+				"QP"
+			],
+			"B",
+			1
+		],
+		"eth_getFilterChanges": [
+			[
+				"QP"
+			],
+			[
+				"FilterChange"
+			],
+			1
+		],
+		"eth_getFilterLogs": [
+			[
+				"QP"
+			],
+			[
+				"FilterChange"
+			],
+			1
+		],
+		"eth_getLogs": [
+			[
+				"Filter"
+			],
+			[
+				"FilterChange"
+			],
+			1
+		],
+		"eth_getWork": [
+			[],
+			[
+				"D"
+			]
+		],
+		"eth_submitWork": [
+			[
+				"D",
+				"D32",
+				"D32"
+			],
+			"B",
+			3
+		],
+		"eth_submitHashrate": [
+			[
+				"D",
+				"D"
+			],
+			"B",
+			2
+		],
+		"db_putString": [
+			[
+				"S",
+				"S",
+				"S"
+			],
+			"B",
+			2
+		],
+		"db_getString": [
+			[
+				"S",
+				"S"
+			],
+			"S",
+			2
+		],
+		"db_putHex": [
+			[
+				"S",
+				"S",
+				"D"
+			],
+			"B",
+			2
+		],
+		"db_getHex": [
+			[
+				"S",
+				"S"
+			],
+			"D",
+			2
+		],
+		"shh_post": [
+			[
+				"SHHPost"
+			],
+			"B",
+			1
+		],
+		"shh_version": [
+			[],
+			"S"
+		],
+		"shh_newIdentity": [
+			[],
+			"D"
+		],
+		"shh_hasIdentity": [
+			[
+				"D"
+			],
+			"B"
+		],
+		"shh_newGroup": [
+			[],
+			"D"
+		],
+		"shh_addToGroup": [
+			[
+				"D"
+			],
+			"B",
+			1
+		],
+		"shh_newFilter": [
+			[
+				"SHHFilter"
+			],
+			"Q",
+			1
+		],
+		"shh_uninstallFilter": [
+			[
+				"Q"
+			],
+			"B",
+			1
+		],
+		"shh_getFilterChanges": [
+			[
+				"Q"
+			],
+			[
+				"SHHFilterChange"
+			],
+			1
+		],
+		"shh_getMessages": [
+			[
+				"Q"
+			],
+			[
+				"SHHFilterChange"
+			],
+			1
+		]
+	},
+	"tags": [
+		"latest",
+		"earliest",
+		"pending"
+	],
+	"objects": {
+		"EthSyncing": {
+			"__required": [],
+			"startingBlock": "Q",
+			"currentBlock": "Q",
+			"highestBlock": "Q"
+		},
+		"SendTransaction": {
+			"__required": [
+				"from",
+				"data"
+			],
+			"from": "D20",
+			"to": "D20",
+			"gas": "Q",
+			"gasPrice": "Q",
+			"value": "Q",
+			"data": "D",
+			"nonce": "Q"
+		},
+		"EstimateTransaction": {
+			"__required": [],
+			"from": "D20",
+			"to": "D20",
+			"gas": "Q",
+			"gasPrice": "Q",
+			"value": "Q",
+			"data": "D",
+			"nonce": "Q"
+		},
+		"CallTransaction": {
+			"__required": [
+				"to"
+			],
+			"from": "D20",
+			"to": "D20",
+			"gas": "Q",
+			"gasPrice": "Q",
+			"value": "Q",
+			"data": "D",
+			"nonce": "Q"
+		},
+		"Block": {
+			"__required": [],
+			"number": "Q",
+			"hash": "D32",
+			"parentHash": "D32",
+			"nonce": "D",
+			"sha3Uncles": "D",
+			"logsBloom": "D",
+			"transactionsRoot": "D",
+			"stateRoot": "D",
+			"receiptsRoot": "D",
+			"miner": "D",
+			"difficulty": "Q",
+			"totalDifficulty": "Q",
+			"extraData": "D",
+			"size": "Q",
+			"gasLimit": "Q",
+			"gasUsed": "Q",
+			"timestamp": "Q",
+			"transactions": [
+				"DATA|Transaction"
+			],
+			"uncles": [
+				"D"
+			]
+		},
+		"Transaction": {
+			"__required": [],
+			"hash": "D32",
+			"nonce": "Q",
+			"blockHash": "D32",
+			"blockNumber": "Q",
+			"transactionIndex": "Q",
+			"from": "D20",
+			"to": "D20",
+			"value": "Q",
+			"gasPrice": "Q",
+			"gas": "Q",
+			"input": "D"
+		},
+		"Receipt": {
+			"__required": [],
+			"transactionHash": "D32",
+			"transactionIndex": "Q",
+			"blockHash": "D32",
+			"blockNumber": "Q",
+			"cumulativeGasUsed": "Q",
+			"gasUsed": "Q",
+			"contractAddress": "D20",
+			"logs": [
+				"FilterChange"
+			]
+		},
+		"Filter": {
+			"__required": [],
+			"fromBlock": "Q|T",
+			"toBlock": "Q|T",
+			"address": "D20",
+			"topics": [
+				"D"
+			]
+		},
+		"FilterChange": {
+			"__required": [],
+			"removed": "B",
+			"logIndex": "Q",
+			"transactionIndex": "Q",
+			"transactionHash": "D32",
+			"blockHash": "D32",
+			"blockNumber": "Q",
+			"address": "D20",
+			"data": "Array|DATA",
+			"topics": [
+				"D"
+			]
+		},
+		"SHHPost": {
+			"__required": [
+				"topics",
+				"payload",
+				"priority",
+				"ttl"
+			],
+			"from": "D",
+			"to": "D",
+			"topics": [
+				"D"
+			],
+			"payload": "D",
+			"priority": "Q",
+			"ttl": "Q"
+		},
+		"SHHFilter": {
+			"__required": [
+				"topics"
+			],
+			"to": "D",
+			"topics": [
+				"D"
+			]
+		},
+		"SHHFilterChange": {
+			"__required": [],
+			"hash": "D",
+			"from": "D",
+			"to": "D",
+			"expiry": "Q",
+			"ttl": "Q",
+			"sent": "Q",
+			"topics": [
+				"D"
+			],
+			"payload": "D",
+			"workProved": "Q"
+		},
+		"SHHMessage": {
+			"__required": [],
+			"hash": "D",
+			"from": "D",
+			"to": "D",
+			"expiry": "Q",
+			"ttl": "Q",
+			"sent": "Q",
+			"topics": [
+				"D"
+			],
+			"payload": "D",
+			"workProved": "Q"
+		}
+	}
+};
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+var BN = __webpack_require__(2);
+var stripHexPrefix = __webpack_require__(0);
+
+/**
+ * Returns a BN object, converts a number value to a BN
+ * @param {String|Number|Object} `arg` input a string number, hex string number, number, BigNumber or BN object
+ * @return {Object} `output` BN object of the number
+ * @throws if the argument is not an array, object that isn't a bignumber, not a string number or number
+ */
+module.exports = function numberToBN(arg) {
+  if (typeof arg === 'string' || typeof arg === 'number') {
+    var multiplier = new BN(1); // eslint-disable-line
+    var formattedString = String(arg).toLowerCase().trim();
+    var isHexPrefixed = formattedString.substr(0, 2) === '0x' || formattedString.substr(0, 3) === '-0x';
+    var stringArg = stripHexPrefix(formattedString); // eslint-disable-line
+    if (stringArg.substr(0, 1) === '-') {
+      stringArg = stripHexPrefix(stringArg.slice(1));
+      multiplier = new BN(-1, 10);
+    }
+    stringArg = stringArg === '' ? '0' : stringArg;
+
+    if ((!stringArg.match(/^-?[0-9]+$/) && stringArg.match(/^[0-9A-Fa-f]+$/))
+      || stringArg.match(/^[a-fA-F]+$/)
+      || (isHexPrefixed === true && stringArg.match(/^[0-9A-Fa-f]+$/))) {
+      return new BN(stringArg, 16).mul(multiplier);
+    }
+
+    if ((stringArg.match(/^-?[0-9]+$/) || stringArg === '') && isHexPrefixed === false) {
+      return new BN(stringArg, 10).mul(multiplier);
+    }
+  } else if (typeof arg === 'object' && arg.toString && (!arg.pop && !arg.push)) {
+    if (arg.toString(10).match(/^-?[0-9]+$/) && (arg.mul || arg.dividedToIntegerBy)) {
+      return new BN(arg.toString(10), 10);
+    }
+  }
+
+  throw new Error('[number-to-bn] while converting number ' + JSON.stringify(arg) + ' to BN.js instance, error: invalid number value. Value must be an integer, hex string, BN or BigNumber instance. Note, decimals are not supported.');
+}
+
+
+/***/ },
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5373,7 +6048,7 @@ function padToEven(value) {
 function intToHex(i) {
   var hex = i.toString(16); // eslint-disable-line
 
-  return '0x' + padToEven(hex);
+  return '0x' + hex;
 }
 
 /**
@@ -5384,7 +6059,7 @@ function intToHex(i) {
 function intToBuffer(i) {
   var hex = intToHex(i);
 
-  return Buffer.from(hex.slice(2), 'hex');
+  return new Buffer(padToEven(hex.slice(2)), 'hex');
 }
 
 /**
@@ -5564,690 +6239,15 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
 
 /***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-module.exports = {
-	"methods": {
-		"web3_clientVersion": [
-			[],
-			"S"
-		],
-		"web3_sha3": [
-			[
-				"S"
-			],
-			"D",
-			1
-		],
-		"net_version": [
-			[],
-			"S"
-		],
-		"net_peerCount": [
-			[],
-			"Q"
-		],
-		"net_listening": [
-			[],
-			"B"
-		],
-		"personal_sign": [
-			[
-				"D",
-				"D20",
-				"S"
-			],
-			"D",
-			2
-		],
-		"personal_ecRecover": [
-			[
-				"D",
-				"D"
-			],
-			"D20",
-			2
-		],
-		"vap_protocolVersion": [
-			[],
-			"S"
-		],
-		"vap_syncing": [
-			[],
-			"B|VapSyncing"
-		],
-		"vap_coinbase": [
-			[],
-			"D20"
-		],
-		"vap_mining": [
-			[],
-			"B"
-		],
-		"vap_hashrate": [
-			[],
-			"Q"
-		],
-		"vap_gasPrice": [
-			[],
-			"Q"
-		],
-		"vap_accounts": [
-			[],
-			[
-				"D20"
-			]
-		],
-		"vap_blockNumber": [
-			[],
-			"Q"
-		],
-		"vap_getBalance": [
-			[
-				"D20",
-				"Q|T"
-			],
-			"Q",
-			1,
-			2
-		],
-		"vap_getStorageAt": [
-			[
-				"D20",
-				"Q",
-				"Q|T"
-			],
-			"D",
-			2,
-			2
-		],
-		"vap_getTransactionCount": [
-			[
-				"D20",
-				"Q|T"
-			],
-			"Q",
-			1,
-			2
-		],
-		"vap_getBlockTransactionCountByHash": [
-			[
-				"D32"
-			],
-			"Q",
-			1
-		],
-		"vap_getBlockTransactionCountByNumber": [
-			[
-				"Q|T"
-			],
-			"Q",
-			1
-		],
-		"vap_getUncleCountByBlockHash": [
-			[
-				"D32"
-			],
-			"Q",
-			1
-		],
-		"vap_getUncleCountByBlockNumber": [
-			[
-				"Q"
-			],
-			"Q",
-			1
-		],
-		"vap_getCode": [
-			[
-				"D20",
-				"Q|T"
-			],
-			"D",
-			1,
-			2
-		],
-		"vap_sign": [
-			[
-				"D20",
-				"D"
-			],
-			"D",
-			2
-		],
-		"vap_signTypedData": [
-			[
-				"Array|DATA",
-				"D20"
-			],
-			"D",
-			1
-		],
-		"vap_sendTransaction": [
-			[
-				"SendTransaction"
-			],
-			"D",
-			1
-		],
-		"vap_sendRawTransaction": [
-			[
-				"D"
-			],
-			"D32",
-			1
-		],
-		"vap_call": [
-			[
-				"CallTransaction",
-				"Q|T"
-			],
-			"D",
-			1,
-			2
-		],
-		"vap_estimateGas": [
-			[
-				"EstimateTransaction",
-				"Q|T"
-			],
-			"Q",
-			1
-		],
-		"vap_getBlockByHash": [
-			[
-				"D32",
-				"B"
-			],
-			"Block",
-			2
-		],
-		"vap_getBlockByNumber": [
-			[
-				"Q|T",
-				"B"
-			],
-			"Block",
-			2
-		],
-		"vap_getTransactionByHash": [
-			[
-				"D32"
-			],
-			"Transaction",
-			1
-		],
-		"vap_getTransactionByBlockHashAndIndex": [
-			[
-				"D32",
-				"Q"
-			],
-			"Transaction",
-			2
-		],
-		"vap_getTransactionByBlockNumberAndIndex": [
-			[
-				"Q|T",
-				"Q"
-			],
-			"Transaction",
-			2
-		],
-		"vap_getTransactionReceipt": [
-			[
-				"D32"
-			],
-			"Receipt",
-			1
-		],
-		"vap_getUncleByBlockHashAndIndex": [
-			[
-				"D32",
-				"Q"
-			],
-			"Block",
-			1
-		],
-		"vap_getUncleByBlockNumberAndIndex": [
-			[
-				"Q|T",
-				"Q"
-			],
-			"Block",
-			2
-		],
-		"vap_getCompilers": [
-			[],
-			[
-				"S"
-			]
-		],
-		"vap_compileLLL": [
-			[
-				"S"
-			],
-			"D",
-			1
-		],
-		"vap_compileSolidity": [
-			[
-				"S"
-			],
-			"D",
-			1
-		],
-		"vap_compileSerpent": [
-			[
-				"S"
-			],
-			"D",
-			1
-		],
-		"vap_newFilter": [
-			[
-				"Filter"
-			],
-			"Q",
-			1
-		],
-		"vap_newBlockFilter": [
-			[],
-			"Q"
-		],
-		"vap_newPendingTransactionFilter": [
-			[],
-			"Q"
-		],
-		"vap_uninstallFilter": [
-			[
-				"QP"
-			],
-			"B",
-			1
-		],
-		"vap_getFilterChanges": [
-			[
-				"QP"
-			],
-			[
-				"FilterChange"
-			],
-			1
-		],
-		"vap_getFilterLogs": [
-			[
-				"QP"
-			],
-			[
-				"FilterChange"
-			],
-			1
-		],
-		"vap_getLogs": [
-			[
-				"Filter"
-			],
-			[
-				"FilterChange"
-			],
-			1
-		],
-		"vap_getWork": [
-			[],
-			[
-				"D"
-			]
-		],
-		"vap_submitWork": [
-			[
-				"D",
-				"D32",
-				"D32"
-			],
-			"B",
-			3
-		],
-		"vap_submitHashrate": [
-			[
-				"D",
-				"D"
-			],
-			"B",
-			2
-		],
-		"db_putString": [
-			[
-				"S",
-				"S",
-				"S"
-			],
-			"B",
-			2
-		],
-		"db_getString": [
-			[
-				"S",
-				"S"
-			],
-			"S",
-			2
-		],
-		"db_putHex": [
-			[
-				"S",
-				"S",
-				"D"
-			],
-			"B",
-			2
-		],
-		"db_getHex": [
-			[
-				"S",
-				"S"
-			],
-			"D",
-			2
-		],
-		"shh_post": [
-			[
-				"SHHPost"
-			],
-			"B",
-			1
-		],
-		"shh_version": [
-			[],
-			"S"
-		],
-		"shh_newIdentity": [
-			[],
-			"D"
-		],
-		"shh_hasIdentity": [
-			[
-				"D"
-			],
-			"B"
-		],
-		"shh_newGroup": [
-			[],
-			"D"
-		],
-		"shh_addToGroup": [
-			[
-				"D"
-			],
-			"B",
-			1
-		],
-		"shh_newFilter": [
-			[
-				"SHHFilter"
-			],
-			"Q",
-			1
-		],
-		"shh_uninstallFilter": [
-			[
-				"Q"
-			],
-			"B",
-			1
-		],
-		"shh_getFilterChanges": [
-			[
-				"Q"
-			],
-			[
-				"SHHFilterChange"
-			],
-			1
-		],
-		"shh_getMessages": [
-			[
-				"Q"
-			],
-			[
-				"SHHFilterChange"
-			],
-			1
-		]
-	},
-	"tags": [
-		"latest",
-		"earliest",
-		"pending"
-	],
-	"objects": {
-		"VapSyncing": {
-			"__required": [],
-			"startingBlock": "Q",
-			"currentBlock": "Q",
-			"highestBlock": "Q"
-		},
-		"SendTransaction": {
-			"__required": [
-				"from",
-				"data"
-			],
-			"from": "D20",
-			"to": "D20",
-			"gas": "Q",
-			"gasPrice": "Q",
-			"value": "Q",
-			"data": "D",
-			"nonce": "Q"
-		},
-		"EstimateTransaction": {
-			"__required": [],
-			"from": "D20",
-			"to": "D20",
-			"gas": "Q",
-			"gasPrice": "Q",
-			"value": "Q",
-			"data": "D",
-			"nonce": "Q"
-		},
-		"CallTransaction": {
-			"__required": [
-				"to"
-			],
-			"from": "D20",
-			"to": "D20",
-			"gas": "Q",
-			"gasPrice": "Q",
-			"value": "Q",
-			"data": "D",
-			"nonce": "Q"
-		},
-		"Block": {
-			"__required": [],
-			"number": "Q",
-			"hash": "D32",
-			"parentHash": "D32",
-			"nonce": "D",
-			"sha3Uncles": "D",
-			"logsBloom": "D",
-			"transactionsRoot": "D",
-			"stateRoot": "D",
-			"receiptsRoot": "D",
-			"miner": "D",
-			"difficulty": "Q",
-			"totalDifficulty": "Q",
-			"extraData": "D",
-			"size": "Q",
-			"gasLimit": "Q",
-			"gasUsed": "Q",
-			"timestamp": "Q",
-			"transactions": [
-				"DATA|Transaction"
-			],
-			"uncles": [
-				"D"
-			]
-		},
-		"Transaction": {
-			"__required": [],
-			"hash": "D32",
-			"nonce": "Q",
-			"blockHash": "D32",
-			"blockNumber": "Q",
-			"transactionIndex": "Q",
-			"from": "D20",
-			"to": "D20",
-			"value": "Q",
-			"gasPrice": "Q",
-			"gas": "Q",
-			"input": "D"
-		},
-		"Receipt": {
-			"__required": [],
-			"transactionHash": "D32",
-			"transactionIndex": "Q",
-			"blockHash": "D32",
-			"blockNumber": "Q",
-			"cumulativeGasUsed": "Q",
-			"gasUsed": "Q",
-			"contractAddress": "D20",
-			"logs": [
-				"FilterChange"
-			]
-		},
-		"Filter": {
-			"__required": [],
-			"fromBlock": "Q|T",
-			"toBlock": "Q|T",
-			"address": "D20",
-			"topics": [
-				"D"
-			]
-		},
-		"FilterChange": {
-			"__required": [],
-			"removed": "B",
-			"logIndex": "Q",
-			"transactionIndex": "Q",
-			"transactionHash": "D32",
-			"blockHash": "D32",
-			"blockNumber": "Q",
-			"address": "D20",
-			"data": "Array|DATA",
-			"topics": [
-				"D"
-			]
-		},
-		"SHHPost": {
-			"__required": [
-				"topics",
-				"payload",
-				"priority",
-				"ttl"
-			],
-			"from": "D",
-			"to": "D",
-			"topics": [
-				"D"
-			],
-			"payload": "D",
-			"priority": "Q",
-			"ttl": "Q"
-		},
-		"SHHFilter": {
-			"__required": [
-				"topics"
-			],
-			"to": "D",
-			"topics": [
-				"D"
-			]
-		},
-		"SHHFilterChange": {
-			"__required": [],
-			"hash": "D",
-			"from": "D",
-			"to": "D",
-			"expiry": "Q",
-			"ttl": "Q",
-			"sent": "Q",
-			"topics": [
-				"D"
-			],
-			"payload": "D",
-			"workProved": "Q"
-		},
-		"SHHMessage": {
-			"__required": [],
-			"hash": "D",
-			"from": "D",
-			"to": "D",
-			"expiry": "Q",
-			"ttl": "Q",
-			"sent": "Q",
-			"topics": [
-				"D"
-			],
-			"payload": "D",
-			"workProved": "Q"
-		}
-	}
-};
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-var BN = __webpack_require__(2);
-var stripHexPrefix = __webpack_require__(0);
-
-/**
- * Returns a BN object, converts a number value to a BN
- * @param {String|Number|Object} `arg` input a string number, hex string number, number, BigNumber or BN object
- * @return {Object} `output` BN object of the number
- * @throws if the argument is not an array, object that isn't a bignumber, not a string number or number
- */
-module.exports = function numberToBN(arg) {
-  if (typeof arg === 'string' || typeof arg === 'number') {
-    var multiplier = new BN(1); // eslint-disable-line
-    var formattedString = String(arg).toLowerCase().trim();
-    var isHexPrefixed = formattedString.substr(0, 2) === '0x' || formattedString.substr(0, 3) === '-0x';
-    var stringArg = stripHexPrefix(formattedString); // eslint-disable-line
-    if (stringArg.substr(0, 1) === '-') {
-      stringArg = stripHexPrefix(stringArg.slice(1));
-      multiplier = new BN(-1, 10);
-    }
-    stringArg = stringArg === '' ? '0' : stringArg;
-
-    if ((!stringArg.match(/^-?[0-9]+$/) && stringArg.match(/^[0-9A-Fa-f]+$/))
-      || stringArg.match(/^[a-fA-F]+$/)
-      || (isHexPrefixed === true && stringArg.match(/^[0-9A-Fa-f]+$/))) {
-      return new BN(stringArg, 16).mul(multiplier);
-    }
-
-    if ((stringArg.match(/^-?[0-9]+$/) || stringArg === '') && isHexPrefixed === false) {
-      return new BN(stringArg, 10).mul(multiplier);
-    }
-  } else if (typeof arg === 'object' && arg.toString && (!arg.pop && !arg.push)) {
-    if (arg.toString(10).match(/^-?[0-9]+$/) && (arg.mul || arg.dividedToIntegerBy)) {
-      return new BN(arg.toString(10), 10);
-    }
-  }
-
-  throw new Error('[number-to-bn] while converting number ' + JSON.stringify(arg) + ' to BN.js instance, error: invalid number value. Value must be an integer, hex string, BN or BigNumber instance. Note, decimals are not supported.');
-}
-
-
-/***/ },
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 'use strict';
 
-var schema = __webpack_require__(5);
-var util = __webpack_require__(4);
-var numberToBN = __webpack_require__(6);
+var schema = __webpack_require__(4);
+var util = __webpack_require__(6);
+var numberToBN = __webpack_require__(5);
 var stripHexPrefix = __webpack_require__(0);
 var BN = __webpack_require__(2);
 var padToEven = util.padToEven;
@@ -6526,65 +6526,98 @@ for (var i = 0, len = code.length; i < len; ++i) {
 revLookup['-'.charCodeAt(0)] = 62
 revLookup['_'.charCodeAt(0)] = 63
 
-function placeHoldersCount (b64) {
+function getLens (b64) {
   var len = b64.length
+
   if (len % 4 > 0) {
     throw new Error('Invalid string. Length must be a multiple of 4')
   }
 
-  // the number of equal signs (place holders)
-  // if there are two placeholders, than the two characters before it
-  // represent one byte
-  // if there is only one, then the three characters before it represent 2 bytes
-  // this is just a cheap hack to not do indexOf twice
-  return b64[len - 2] === '=' ? 2 : b64[len - 1] === '=' ? 1 : 0
+  // Trim off extra bytes after placeholder bytes are found
+  // See: https://github.com/beatgammit/base64-js/issues/42
+  var validLen = b64.indexOf('=')
+  if (validLen === -1) validLen = len
+
+  var placeHoldersLen = validLen === len
+    ? 0
+    : 4 - (validLen % 4)
+
+  return [validLen, placeHoldersLen]
 }
 
+// base64 is 4/3 + up to two characters of the original data
 function byteLength (b64) {
-  // base64 is 4/3 + up to two characters of the original data
-  return (b64.length * 3 / 4) - placeHoldersCount(b64)
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
+}
+
+function _byteLength (b64, validLen, placeHoldersLen) {
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
 }
 
 function toByteArray (b64) {
-  var i, l, tmp, placeHolders, arr
-  var len = b64.length
-  placeHolders = placeHoldersCount(b64)
+  var tmp
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
 
-  arr = new Arr((len * 3 / 4) - placeHolders)
+  var arr = new Arr(_byteLength(b64, validLen, placeHoldersLen))
+
+  var curByte = 0
 
   // if there are placeholders, only get up to the last complete 4 chars
-  l = placeHolders > 0 ? len - 4 : len
+  var len = placeHoldersLen > 0
+    ? validLen - 4
+    : validLen
 
-  var L = 0
-
-  for (i = 0; i < l; i += 4) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 18) | (revLookup[b64.charCodeAt(i + 1)] << 12) | (revLookup[b64.charCodeAt(i + 2)] << 6) | revLookup[b64.charCodeAt(i + 3)]
-    arr[L++] = (tmp >> 16) & 0xFF
-    arr[L++] = (tmp >> 8) & 0xFF
-    arr[L++] = tmp & 0xFF
+  var i
+  for (i = 0; i < len; i += 4) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 18) |
+      (revLookup[b64.charCodeAt(i + 1)] << 12) |
+      (revLookup[b64.charCodeAt(i + 2)] << 6) |
+      revLookup[b64.charCodeAt(i + 3)]
+    arr[curByte++] = (tmp >> 16) & 0xFF
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
   }
 
-  if (placeHolders === 2) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 2) | (revLookup[b64.charCodeAt(i + 1)] >> 4)
-    arr[L++] = tmp & 0xFF
-  } else if (placeHolders === 1) {
-    tmp = (revLookup[b64.charCodeAt(i)] << 10) | (revLookup[b64.charCodeAt(i + 1)] << 4) | (revLookup[b64.charCodeAt(i + 2)] >> 2)
-    arr[L++] = (tmp >> 8) & 0xFF
-    arr[L++] = tmp & 0xFF
+  if (placeHoldersLen === 2) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 2) |
+      (revLookup[b64.charCodeAt(i + 1)] >> 4)
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  if (placeHoldersLen === 1) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 10) |
+      (revLookup[b64.charCodeAt(i + 1)] << 4) |
+      (revLookup[b64.charCodeAt(i + 2)] >> 2)
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
   }
 
   return arr
 }
 
 function tripletToBase64 (num) {
-  return lookup[num >> 18 & 0x3F] + lookup[num >> 12 & 0x3F] + lookup[num >> 6 & 0x3F] + lookup[num & 0x3F]
+  return lookup[num >> 18 & 0x3F] +
+    lookup[num >> 12 & 0x3F] +
+    lookup[num >> 6 & 0x3F] +
+    lookup[num & 0x3F]
 }
 
 function encodeChunk (uint8, start, end) {
   var tmp
   var output = []
   for (var i = start; i < end; i += 3) {
-    tmp = ((uint8[i] << 16) & 0xFF0000) + ((uint8[i + 1] << 8) & 0xFF00) + (uint8[i + 2] & 0xFF)
+    tmp =
+      ((uint8[i] << 16) & 0xFF0000) +
+      ((uint8[i + 1] << 8) & 0xFF00) +
+      (uint8[i + 2] & 0xFF)
     output.push(tripletToBase64(tmp))
   }
   return output.join('')
@@ -6594,7 +6627,6 @@ function fromByteArray (uint8) {
   var tmp
   var len = uint8.length
   var extraBytes = len % 3 // if we have 1 byte left, pad 2 bytes
-  var output = ''
   var parts = []
   var maxChunkLength = 16383 // must be multiple of 3
 
@@ -6606,18 +6638,20 @@ function fromByteArray (uint8) {
   // pad the end with zeros, but make sure to not forget the extra bytes
   if (extraBytes === 1) {
     tmp = uint8[len - 1]
-    output += lookup[tmp >> 2]
-    output += lookup[(tmp << 4) & 0x3F]
-    output += '=='
+    parts.push(
+      lookup[tmp >> 2] +
+      lookup[(tmp << 4) & 0x3F] +
+      '=='
+    )
   } else if (extraBytes === 2) {
-    tmp = (uint8[len - 2] << 8) + (uint8[len - 1])
-    output += lookup[tmp >> 10]
-    output += lookup[(tmp >> 4) & 0x3F]
-    output += lookup[(tmp << 2) & 0x3F]
-    output += '='
+    tmp = (uint8[len - 2] << 8) + uint8[len - 1]
+    parts.push(
+      lookup[tmp >> 10] +
+      lookup[(tmp >> 4) & 0x3F] +
+      lookup[(tmp << 2) & 0x3F] +
+      '='
+    )
   }
-
-  parts.push(output)
 
   return parts.join('')
 }
@@ -6627,6 +6661,7 @@ function fromByteArray (uint8) {
 /* 9 */
 /***/ function(module, exports) {
 
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
