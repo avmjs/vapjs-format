@@ -1,10 +1,10 @@
 const schema = require('./schema.json');
 const BN = require('bignumber.js');
-const toBuffer = require('ethjs-util').toBuffer;
-const stripHexPrefix = require('ethjs-util').stripHexPrefix;
-const isHexPrefixed = require('ethjs-util').isHexPrefixed;
-const arrayContainsArray = require('ethjs-util').arrayContainsArray;
-const getBinarySize = require('ethjs-util').getBinarySize;
+const toBuffer = require('vapjs-util').toBuffer;
+const stripHexPrefix = require('vapjs-util').stripHexPrefix;
+const isHexPrefixed = require('vapjs-util').isHexPrefixed;
+const arrayContainsArray = require('vapjs-util').arrayContainsArray;
+const getBinarySize = require('vapjs-util').getBinarySize;
 
 // format quantity value, either encode to hex, or decode to BigNumber
 // should intake null, stringNumber, number, BN
@@ -60,8 +60,8 @@ function formatObject(formatter, value, encode) {
 
   // if the object is a string flag, then retreive the object
   if (typeof formatter === 'string') {
-    if (formatter === 'Boolean|EthSyncing') {
-      formatObject = Object.assign({}, schema.objects['EthSyncing']);
+    if (formatter === 'Boolean|VapSyncing') {
+      formatObject = Object.assign({}, schema.objects['VapSyncing']);
     } else if (formatter === 'DATA|Transaction') {
       formatObject = Object.assign({}, schema.objects['Transaction']);
     } else {
