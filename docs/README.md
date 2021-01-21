@@ -17,7 +17,7 @@ should not need to be touched.
 
 For more in-depth structure, see the developer-guide.md.
 
-*(If they do have to be changed, please [submit an issue](https://github.com/ethjs/ethjs-format/issues)!)*
+*(If they do have to be changed, please [submit an issue](https://github.com/vapjs/vapjs-format/issues)!)*
 
 ### Testing
 
