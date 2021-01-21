@@ -1,17 +1,18 @@
 {
-  "name": "ethjs-format",
+  "name": "vapjs-format",
+  "namespace": "vapjs",
   "version": "0.0.9",
-  "description": "A payload formatter for the Ethereum RPC layer.",
+  "description": "A payload formatter for the Vapory RPC layer.",
   "main": "./src/index.js",
   "scripts": {
     "test": "mocha ./src/tests/**/*.js -R spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/silentcicero/ethjs-format.git"
+    "url": "git+ssh://git@github.com/vapjs/vapjs-format.git"
   },
   "keywords": [
-    "ethereum",
+    "vapory",
     "rpc",
     "formatter",
     "format"
@@ -25,15 +26,15 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/silentcicero/ethjs-format/issues"
+    "url": "https://github.com/vapjs/vapjs-format/issues"
   },
-  "homepage": "https://github.com/silentcicero/ethjs-format#readme",
+  "homepage": "https://github.com/vapjs/vapjs-format#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.1.2"
   },
   "dependencies": {
-    "ethjs-util": "0.0.3",
+    "vapjs-util": "0.0.3-a",
     "assert": "1.4.1",
     "bignumber.js": "3.0.1"
   }

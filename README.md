@@ -1,26 +1,26 @@
-## ethjs-format
+## vapjs-format
 
 <div>
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/SilentCicero/ethjs-format">
-    <img src="https://david-dm.org/SilentCicero/ethjs-format.svg"
+  <a href="https://david-dm.org/Vapjs/vapjs-format">
+    <img src="https://david-dm.org/Vapjs/vapjs-format.svg"
     alt="Dependency Status" />
   </a>
 
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/SilentCicero/ethjs-format#info=devDependencies">
-    <img src="https://david-dm.org/SilentCicero/ethjs-format/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/Vapjs/vapjs-format#info=devDependencies">
+    <img src="https://david-dm.org/Vapjs/vapjs-format/dev-status.svg" alt="devDependency Status" />
   </a>
 
   <!-- Build Status -->
-  <a href="https://travis-ci.org/SilentCicero/ethjs-format">
-    <img src="https://travis-ci.org/SilentCicero/ethjs-format.svg"
+  <a href="https://travis-ci.org/Vapjs/vapjs-format">
+    <img src="https://travis-ci.org/Vapjs/vapjs-format.svg"
     alt="Build Status" />
   </a>
 
   <!-- NPM Version -->
-  <a href="https://www.npmjs.org/package/ethjs-format">
-    <img src="http://img.shields.io/npm/v/ethjs-format.svg"
+  <a href="https://www.npmjs.org/package/vapjs-format">
+    <img src="http://img.shields.io/npm/v/vapjs-format.svg"
     alt="NPM version" />
   </a>
 
@@ -32,24 +32,24 @@
 
 <br />
 
-A payload formatter for the Ethereum RPC layer.
+A payload formatter for the Vapory RPC layer.
 
 ## Install
 
 ```
-npm install --save ethjs-format
+npm install --save vapjs-format
 ```
 
 ## Usage
 
 ```js
-const format = require('ethjs-format');
+const format = require('vapjs-format');
 
-const inputPayload = format.formatInputs('eth_getBalance', ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", 405938494]);
+const inputPayload = format.formatInputs('vap_getBalance', ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", 405938494]);
 
 // result ['0x407d73d8a49eeb85d32cf465507dd71d507100c1', '0x1832213E']
 
-const outputPayload = format.formatOutputs('eth_getBalance', "0x0234c8a3397aab58");
+const outputPayload = format.formatOutputs('vap_getBalance', "0x0234c8a3397aab58");
 
 // result <BigNumber ...>
 // result outputPayload.toString(10) 158972490234375000
@@ -57,11 +57,11 @@ const outputPayload = format.formatOutputs('eth_getBalance', "0x0234c8a3397aab58
 
 ## About
 
-A straight forward and complete RPC formatting layer for the Ethereum RPC spec.
+A straight forward and complete RPC formatting layer for the Vapory RPC spec.
 
 ## Encoding/Decoding
 
-`ethjs-format` mainly helps in the process of handling and encoding things like quantities (i.e numbers) either before or after payload transport.
+`vapjs-format` mainly helps in the process of handling and encoding things like quantities (i.e numbers) either before or after payload transport.
 
 ### Quantities
 
@@ -73,12 +73,12 @@ A straight forward and complete RPC formatting layer for the Ethereum RPC spec.
 
 ### Objects
 
-  Will encode complex RPC objects like the `eth_sendTransaction` input object structure `{from: ..., data: ..., gas: ...}` for RPC payloads. For complex objects, it also enforces by `throw` required fields such as `from` and `data` for the `eth_sendTransaction` input object.
+  Will encode complex RPC objects like the `vap_sendTransaction` input object structure `{from: ..., data: ..., gas: ...}` for RPC payloads. For complex objects, it also enforces by `throw` required fields such as `from` and `data` for the `vap_sendTransaction` input object.
 
   ```js
-  const format = require('ethjs-format');
+  const format = require('vapjs-format');
 
-  const inputPayload = format.formatInputs('eth_sendTransaction', [{
+  const inputPayload = format.formatInputs('vap_sendTransaction', [{
     "from": "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
     "to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
     "gas": new BigNumber("30400"), // 30400,
@@ -99,7 +99,7 @@ A straight forward and complete RPC formatting layer for the Ethereum RPC spec.
   }]
   */
 
-  const outputPayload = format.formatOutputs('eth_sendTransaction', "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331");
+  const outputPayload = format.formatOutputs('vap_sendTransaction', "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331");
 
   // result "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
   ```
@@ -112,49 +112,49 @@ web3_sha3
 net_version
 net_peerCount
 net_listening
-eth_protocolVersion
-eth_syncing
-eth_coinbase
-eth_mining
-eth_hashrate
-eth_gasPrice
-eth_accounts
-eth_blockNumber
-eth_getBalance
-eth_getStorageAt
-eth_getTransactionCount
-eth_getBlockTransactionCountByHash
-eth_getBlockTransactionCountByNumber
-eth_getUncleCountByBlockHash
-eth_getUncleCountByBlockNumber
-eth_getCode
-eth_sign
-eth_sendTransaction
-eth_sendRawTransaction
-eth_call
-eth_estimateGas
-eth_getBlockByHash
-eth_getBlockByNumber
-eth_getTransactionByHash
-eth_getTransactionByBlockHashAndIndex
-eth_getTransactionByBlockNumberAndIndex
-eth_getTransactionReceipt
-eth_getUncleByBlockHashAndIndex
-eth_getUncleByBlockNumberAndIndex
-eth_getCompilers
-eth_compileLLL
-eth_compileSolidity
-eth_compileSerpent
-eth_newFilter
-eth_newBlockFilter
-eth_newPendingTransactionFilter
-eth_uninstallFilter
-eth_getFilterChanges
-eth_getFilterLogs
-eth_getLogs
-eth_getWork
-eth_submitWork
-eth_submitHashrate
+vap_protocolVersion
+vap_syncing
+vap_coinbase
+vap_mining
+vap_hashrate
+vap_gasPrice
+vap_accounts
+vap_blockNumber
+vap_getBalance
+vap_getStorageAt
+vap_getTransactionCount
+vap_getBlockTransactionCountByHash
+vap_getBlockTransactionCountByNumber
+vap_getUncleCountByBlockHash
+vap_getUncleCountByBlockNumber
+vap_getCode
+vap_sign
+vap_sendTransaction
+vap_sendRawTransaction
+vap_call
+vap_estimateGas
+vap_getBlockByHash
+vap_getBlockByNumber
+vap_getTransactionByHash
+vap_getTransactionByBlockHashAndIndex
+vap_getTransactionByBlockNumberAndIndex
+vap_getTransactionReceipt
+vap_getUncleByBlockHashAndIndex
+vap_getUncleByBlockNumberAndIndex
+vap_getCompilers
+vap_compileLLL
+vap_compileSolidity
+vap_compileSerpent
+vap_newFilter
+vap_newBlockFilter
+vap_newPendingTransactionFilter
+vap_uninstallFilter
+vap_getFilterChanges
+vap_getFilterLogs
+vap_getLogs
+vap_getWork
+vap_submitWork
+vap_submitHashrate
 db_putString
 db_getString
 db_putHex
@@ -198,13 +198,13 @@ There is always a lot of work to do, and will have many rules to maintain. So pl
 
 Please consult our [Code of Conduct](CODE_OF_CONDUCT.md) docs before helping out.
 
-We communicate via [issues](https://github.com/SilentCicero/ethjs-format/issues) and [pull requests](https://github.com/SilentCicero/ethjs-format/pulls).
+We communicate via [issues](https://github.com/Vapjs/vapjs-format/issues) and [pull requests](https://github.com/Vapjs/vapjs-format/pulls).
 
 ## Important documents
 
 - [Changelog](CHANGELOG.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [License](https://raw.githubusercontent.com/SilentCicero/ethjs-format/master/LICENSE)
+- [License](https://raw.githubusercontent.com/Vapjs/vapjs-format/master/LICENSE)
 
 ## Licence
 
