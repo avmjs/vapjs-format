@@ -39,7 +39,7 @@ describe('test vapjs-format object', () => {
       }
     });
 
-    it('test format object VapSyncing', () => {
+    /* it('test format object VapSyncing', () => {
 
       const objVap = {
         startingBlock: "0x57840CC2C",
@@ -48,7 +48,7 @@ describe('test vapjs-format object', () => {
       };
 
       assert.deepEqual(format.formatObject('Boolean|VapSyncing', objVap).startingBlock.toNumber(10) > 0, true);
-    });
+    });*/
 
     it('test is required keys are filled, should throw', () => {
       const encodedSendTransactionObject = {
