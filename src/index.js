@@ -2,11 +2,9 @@ const schema = require('vapjs-schema');
 const util = require('vapjs-util');
 const numberToBN = require('number-to-bn');
 const stripHexPrefix = require('strip-hex-prefix');
-const BN = require('bn.js');
 const padToEven = util.padToEven;
 const arrayContainsArray = util.arrayContainsArray;
 const getBinarySize = util.getBinarySize;
-const ten = new BN('10', 10);
 
 /**
  * Format quantity values, either encode to hex or decode to BigNumber
@@ -24,7 +22,7 @@ function formatQuantity(value, encode, pad) {
   }
 
   const numberValue = numberToBN(value);
-  const numPadding = numberValue.lt(ten) && pad === true && !numberValue.isZero() ? '0' : '';
+  const numPadding = pad && (numberValue.toString(16).length % 2) ? '0' : '';
 
   if (numberToBN(value).isNeg()) { throw new Error(`[vapjs-format] while formatting quantity '${numberValue.toString(10)}', invalid negative number. Number must be positive or zero.`); }
 

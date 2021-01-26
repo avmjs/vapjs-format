@@ -1,3 +1,8 @@
+# 0.2.7 -- forced support quantity padding
+
+- QP   0 => 0x00
+- Q    0 => 0x0
+
 # 0.2.0 -- no longer padds quantity values
 
 1. Not sure why we ever did, maybe just logical assumptions...

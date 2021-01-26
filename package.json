@@ -75,7 +75,7 @@
   "dependencies": {
     "bn.js": "4.11.6",
     "vapjs-schema": "0.2.1",
-    "vapjs-util": "0.1.4",
+    "vapjs-util": "0.1.3",
     "is-hex-prefixed": "1.0.0",
     "number-to-bn": "1.7.0",
     "strip-hex-prefix": "1.0.0"
@@ -119,10 +119,10 @@
     "eslint-plugin-import": "1.8.0",
     "eslint-plugin-jsx-a11y": "1.2.0",
     "eslint-plugin-react": "5.1.1",
-    "vaporyjs-testrpc": "3.0.0",
-    "vapjs-abi": "0.2.1",
+    "vaporyjs-testrpc": "3.0.2",
+    "vapjs-abi": "0.0.1",
     "vapjs-query": "0.0.2",
-    "vapjs-sha3": "0.8.0",
+    "vapjs-sha3": "0.0.1",
     "eventsource-polyfill": "0.9.6",
     "istanbul": "0.4.5",
     "json-loader": "0.5.4",
@@ -191,15 +191,13 @@
   },
   "main": "lib/index.js",
   "name": "vapjs-format",
-  "namespace": "vapjs", 
   "pre-commit": "build",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/vapjs/vapjs-format.git"
   },
   "scripts": {
-    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
-    "build-orig": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+    "build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
     "build:clean": "npm run test:clean && rimraf ./dist",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
@@ -219,5 +217,5 @@
     "test:clean": "rimraf ./coverage",
     "test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000"
   },
-  "version": "0.2.6"
+  "version": "0.2.7"
 }
