@@ -1,4 +1,5 @@
 var webpack = require('webpack'); // eslint-disable-line
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin"); // eslint-disable-line
 
 var env = process.env.NODE_ENV;   // eslint-disable-line
 var filename = 'vapjs-format';      // eslint-disable-line
@@ -13,7 +14,7 @@ var config = {                    // eslint-disable-line
       },
       {
         test: /\.json$/,
-        loader: 'json',
+        loader: 'json-loader',
       },
     ],
   },
@@ -37,19 +38,12 @@ var config = {                    // eslint-disable-line
 if (env === 'production') {
   config.output.filename = filename + '.min.js'; // eslint-disable-line
   config.plugins
-  .push(new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-      pure_getters: true,
-      unsafe: true,
-      unsafe_comps: true,
-      warnings: false,
-      screw_ie8: false,
-    },
-    mangle: {
-      screw_ie8: false,
-    },
-    output: {
-      screw_ie8: false,
+  .push(new UglifyJSPlugin({
+    sourceMap: true,
+    uglifyOptions: {
+      compress: {
+        warnings: false,
+      },
     },
   }));
   config.plugins.push(new webpack.optimize.DedupePlugin());

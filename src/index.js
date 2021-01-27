@@ -1,5 +1,5 @@
 const schema = require('vapjs-schema');
-const util = require('vapjs-util');
+const util = require('vapjs-util/src/index');
 const numberToBN = require('number-to-bn');
 const stripHexPrefix = require('strip-hex-prefix');
 const padToEven = util.padToEven;

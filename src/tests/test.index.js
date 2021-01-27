@@ -3,7 +3,7 @@
 const assert = require('chai').assert;
 const format = require('../index.js');
 const BN = require('bn.js');
-const schema = require('vapjs-schema');
+const schema = require('vapjs-schema/src/schema.json');
 
 describe('test vapjs-format object', () => {
   describe('test formatQuantity', () => {
@@ -46,7 +46,7 @@ describe('test vapjs-format object', () => {
 
     it('test format object VapSyncing', () => {
 
-      const objVap = {
+      var objVap = {
         startingBlock: "0x57840CC2C",
         currentBlock: "0x57840CC2C",
         highestBlock: "0x57840CC2C",
